@@ -2,7 +2,7 @@
 A 30-week build of a Q&A assistant over a small document corpus,completed as part of
 the *Agentic AI & RAG Engineering* programme.
 ## Corpus
-My capstone corpus: FastAPI documentation. Source: https://fastapi.tiangolo.com/
+My capstone corpus: PostgreSQL documentation. Source: https://www.postgresql.org/files/documentation/pdf/18/postgresql-18-A4.pdf 
 ## Structure
 - `src/` — application code
 - `docs/adr/` — Architecture Decision Records (one per major design
