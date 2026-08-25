@@ -12,3 +12,4 @@ choice)
 - [x] Set up repo + secrets discipline
 - [x ] Build `hello_llm.py` (Lab Step 2)
 - [ ] Write ADR v1 (Lab Step 3)
+  
