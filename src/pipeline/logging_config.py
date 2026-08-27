@@ -10,11 +10,11 @@ import logging
 import time
 from pathlib import Path
 
-class JsonFormatter(logging.Formatter ):
+class JsonFormatter(logging.Formatter):
 
     def format(self,record:logging.LogRecord)->str:
        return json.dumps({
-             "ts":     round(time.time(), 3),
+             "ts":    round(time.time(), 3),
             "level":  record.levelname,
             "msg":    record.getMessage(),
             "logger": record.name,
