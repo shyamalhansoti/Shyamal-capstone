@@ -1,2 +1,320 @@
 {"ts": 1787714698.097, "level": "INFO", "msg": "smoke test \u2014 settings: {\"questions_csv\":\"data/questions.csv\",\"results_json\":\"results.json\",\"results_db\":\"results.db\",\"batch_size\":5,\"fail_rate\":0.0,\"model\":\"gpt-4o-mini\",\"use_fake\":true}", "logger": "pipeline"}
 {"ts": 1787714729.644, "level": "INFO", "msg": "smoke test \u2014 settings: {'questions_csv': 'data/questions.csv', 'results_json': 'results.json', 'results_db': 'results.db', 'batch_size': 5, 'fail_rate': 0.0, 'model': 'gpt-4o-mini', 'use_fake': True}", "logger": "pipeline"}
+{"ts": 1787727183.839, "level": "INFO", "msg": "asked: Name three uses of vector databases.", "logger": "pipeline"}
+{"ts": 1787727183.929, "level": "INFO", "msg": "asked: Why might an LLM hallucinate?", "logger": "pipeline"}
+{"ts": 1787727184.268, "level": "INFO", "msg": "asked: What is RAG in one sentence?", "logger": "pipeline"}
+{"ts": 1787727599.463, "level": "INFO", "msg": "asked: Why might an LLM hallucinate?", "logger": "pipeline"}
+{"ts": 1787727599.677, "level": "INFO", "msg": "asked: Name three uses of vector databases.", "logger": "pipeline"}
+{"ts": 1787727599.714, "level": "WARNING", "msg": "retry 1 for: What is RAG in one sentence? (simulated transient failure: What is RAG in one sentence?)", "logger": "pipeline"}
+{"ts": 1787727602.199, "level": "INFO", "msg": "asked: What is RAG in one sentence?", "logger": "pipeline"}
+{"ts": 1787732813.19, "level": "INFO", "msg": "config:{'questions_csv': 'data/questions.csv', 'results_json': 'results.json', 'results_db': 'results.db', 'batch_size': 5, 'fail_rate': 0.0, 'model': 'gpt-4o-mini', 'use_fake': True}", "logger": "pipeline"}
+{"ts": 1787732813.547, "level": "INFO", "msg": "asked: What is RAG in one sentence?", "logger": "pipeline"}
+{"ts": 1787732813.712, "level": "INFO", "msg": "asked: Name three uses of vector databases.", "logger": "pipeline"}
+{"ts": 1787732814.193, "level": "INFO", "msg": "asked: Why might an LLM hallucinate?", "logger": "pipeline"}
+{"ts": 1787739564.55, "level": "INFO", "msg": "config:{'questions_csv': 'data/questions.csv', 'results_json': 'results.json', 'results_db': 'results.db', 'batch_size': 5, 'fail_rate': 0.0, 'model': 'gpt-4o-mini', 'use_fake': True}", "logger": "pipeline"}
+{"ts": 1787739564.552, "level": "INFO", "msg": "loaded 20questions", "logger": "pipeline"}
+{"ts": 1787739564.555, "level": "INFO", "msg": "batch 1: 5 questions", "logger": "pipeline"}
+{"ts": 1787739565.1, "level": "INFO", "msg": "asked: What is retrieval-augmented generation i", "logger": "pipeline"}
+{"ts": 1787739565.119, "level": "INFO", "msg": "asked: Why might an LLM produce confident but w", "logger": "pipeline"}
+{"ts": 1787739565.532, "level": "INFO", "msg": "asked: Name three real-world uses of vector dat", "logger": "pipeline"}
+{"ts": 1787739565.698, "level": "INFO", "msg": "asked: What is a Pydantic BaseModel and how doe", "logger": "pipeline"}
+{"ts": 1787739565.726, "level": "INFO", "msg": "asked: Explain async and await in Python in two", "logger": "pipeline"}
+{"ts": 1787739565.827, "level": "INFO", "msg": "batch 2: 5 questions", "logger": "pipeline"}
+{"ts": 1787739566.329, "level": "INFO", "msg": "asked: How does exponential backoff differ from", "logger": "pipeline"}
+{"ts": 1787739566.619, "level": "INFO", "msg": "asked: What is the role of a foreign key in a S", "logger": "pipeline"}
+{"ts": 1787739566.947, "level": "INFO", "msg": "asked: What does the @app.post decorator do in ", "logger": "pipeline"}
+{"ts": 1787739567.073, "level": "INFO", "msg": "asked: Why is JSON-formatted logging better tha", "logger": "pipeline"}
+{"ts": 1787739567.12, "level": "INFO", "msg": "asked: What's the difference between asyncio.ga", "logger": "pipeline"}
+{"ts": 1787739567.22, "level": "INFO", "msg": "batch 3: 5 questions", "logger": "pipeline"}
+{"ts": 1787739567.557, "level": "INFO", "msg": "asked: Why should API keys be loaded from envir", "logger": "pipeline"}
+{"ts": 1787739567.633, "level": "INFO", "msg": "asked: Why do we use parameterised SQL queries ", "logger": "pipeline"}
+{"ts": 1787739567.882, "level": "INFO", "msg": "asked: What are the main steps in a typical RAG", "logger": "pipeline"}
+{"ts": 1787739568.659, "level": "INFO", "msg": "asked: What is the difference between SELECT an", "logger": "pipeline"}
+{"ts": 1787739568.67, "level": "INFO", "msg": "asked: What does HTTP status code 422 mean?", "logger": "pipeline"}
+{"ts": 1787739568.77, "level": "INFO", "msg": "batch 4: 5 questions", "logger": "pipeline"}
+{"ts": 1787739569.343, "level": "INFO", "msg": "asked: Name three reasons an LLM might hallucin", "logger": "pipeline"}
+{"ts": 1787739569.558, "level": "INFO", "msg": "asked: Explain what dependency injection means ", "logger": "pipeline"}
+{"ts": 1787739569.663, "level": "INFO", "msg": "asked: What does \"rate limiting\" mean in the co", "logger": "pipeline"}
+{"ts": 1787739570.039, "level": "INFO", "msg": "asked: What is the purpose of a unit test?", "logger": "pipeline"}
+{"ts": 1787739570.058, "level": "INFO", "msg": "asked: How does a Python virtual environment he", "logger": "pipeline"}
+{"ts": 1787745530.569, "level": "INFO", "msg": "config:{'questions_csv': 'data/questions.csv', 'results_json': 'results.json', 'results_db': 'results.db', 'batch_size': 5, 'fail_rate': 0.0, 'model': 'gpt-4o-mini', 'use_fake': True}", "logger": "pipeline"}
+{"ts": 1787745530.571, "level": "INFO", "msg": "loaded 20questions", "logger": "pipeline"}
+{"ts": 1787745530.575, "level": "INFO", "msg": "batch 1: 5 questions", "logger": "pipeline"}
+{"ts": 1787745530.943, "level": "INFO", "msg": "asked: Explain async and await in Python in two", "logger": "pipeline"}
+{"ts": 1787745531.062, "level": "INFO", "msg": "asked: Why might an LLM produce confident but w", "logger": "pipeline"}
+{"ts": 1787745531.209, "level": "INFO", "msg": "asked: What is a Pydantic BaseModel and how doe", "logger": "pipeline"}
+{"ts": 1787745531.361, "level": "INFO", "msg": "asked: Name three real-world uses of vector dat", "logger": "pipeline"}
+{"ts": 1787745531.418, "level": "INFO", "msg": "asked: What is retrieval-augmented generation i", "logger": "pipeline"}
+{"ts": 1787745531.519, "level": "INFO", "msg": "batch 2: 5 questions", "logger": "pipeline"}
+{"ts": 1787745531.857, "level": "INFO", "msg": "asked: Why is JSON-formatted logging better tha", "logger": "pipeline"}
+{"ts": 1787745532.237, "level": "INFO", "msg": "asked: How does exponential backoff differ from", "logger": "pipeline"}
+{"ts": 1787745532.306, "level": "INFO", "msg": "asked: What is the role of a foreign key in a S", "logger": "pipeline"}
+{"ts": 1787745532.379, "level": "INFO", "msg": "asked: What's the difference between asyncio.ga", "logger": "pipeline"}
+{"ts": 1787745532.732, "level": "INFO", "msg": "asked: What does the @app.post decorator do in ", "logger": "pipeline"}
+{"ts": 1787745532.832, "level": "INFO", "msg": "batch 3: 5 questions", "logger": "pipeline"}
+{"ts": 1787745533.496, "level": "INFO", "msg": "asked: What is the difference between SELECT an", "logger": "pipeline"}
+{"ts": 1787745533.587, "level": "INFO", "msg": "asked: Why do we use parameterised SQL queries ", "logger": "pipeline"}
+{"ts": 1787745534.13, "level": "INFO", "msg": "asked: Why should API keys be loaded from envir", "logger": "pipeline"}
+{"ts": 1787745534.215, "level": "INFO", "msg": "asked: What does HTTP status code 422 mean?", "logger": "pipeline"}
+{"ts": 1787745534.303, "level": "INFO", "msg": "asked: What are the main steps in a typical RAG", "logger": "pipeline"}
+{"ts": 1787745534.404, "level": "INFO", "msg": "batch 4: 5 questions", "logger": "pipeline"}
+{"ts": 1787745534.772, "level": "INFO", "msg": "asked: What does \"rate limiting\" mean in the co", "logger": "pipeline"}
+{"ts": 1787745535.337, "level": "INFO", "msg": "asked: Explain what dependency injection means ", "logger": "pipeline"}
+{"ts": 1787745535.532, "level": "INFO", "msg": "asked: How does a Python virtual environment he", "logger": "pipeline"}
+{"ts": 1787745535.74, "level": "INFO", "msg": "asked: What is the purpose of a unit test?", "logger": "pipeline"}
+{"ts": 1787745535.838, "level": "INFO", "msg": "asked: Name three reasons an LLM might hallucin", "logger": "pipeline"}
+{"ts": 1787745683.133, "level": "INFO", "msg": "config:{'questions_csv': 'data/questions.csv', 'results_json': 'results.json', 'results_db': 'results.db', 'batch_size': 5, 'fail_rate': 0.0, 'model': 'gpt-4o-mini', 'use_fake': True}", "logger": "pipeline"}
+{"ts": 1787745683.135, "level": "INFO", "msg": "loaded 20questions", "logger": "pipeline"}
+{"ts": 1787745683.138, "level": "INFO", "msg": "batch 1: 5 questions", "logger": "pipeline"}
+{"ts": 1787745683.632, "level": "INFO", "msg": "asked: What is a Pydantic BaseModel and how doe", "logger": "pipeline"}
+{"ts": 1787745683.678, "level": "INFO", "msg": "asked: Explain async and await in Python in two", "logger": "pipeline"}
+{"ts": 1787745683.921, "level": "INFO", "msg": "asked: Why might an LLM produce confident but w", "logger": "pipeline"}
+{"ts": 1787745684.119, "level": "INFO", "msg": "asked: Name three real-world uses of vector dat", "logger": "pipeline"}
+{"ts": 1787745684.436, "level": "INFO", "msg": "asked: What is retrieval-augmented generation i", "logger": "pipeline"}
+{"ts": 1787745684.536, "level": "INFO", "msg": "batch 2: 5 questions", "logger": "pipeline"}
+{"ts": 1787745685.326, "level": "INFO", "msg": "asked: What's the difference between asyncio.ga", "logger": "pipeline"}
+{"ts": 1787745685.463, "level": "INFO", "msg": "asked: What is the role of a foreign key in a S", "logger": "pipeline"}
+{"ts": 1787745685.468, "level": "INFO", "msg": "asked: Why is JSON-formatted logging better tha", "logger": "pipeline"}
+{"ts": 1787745685.935, "level": "INFO", "msg": "asked: What does the @app.post decorator do in ", "logger": "pipeline"}
+{"ts": 1787745685.946, "level": "INFO", "msg": "asked: How does exponential backoff differ from", "logger": "pipeline"}
+{"ts": 1787745686.047, "level": "INFO", "msg": "batch 3: 5 questions", "logger": "pipeline"}
+{"ts": 1787745686.546, "level": "INFO", "msg": "asked: Why should API keys be loaded from envir", "logger": "pipeline"}
+{"ts": 1787745686.636, "level": "INFO", "msg": "asked: What are the main steps in a typical RAG", "logger": "pipeline"}
+{"ts": 1787745686.735, "level": "INFO", "msg": "asked: Why do we use parameterised SQL queries ", "logger": "pipeline"}
+{"ts": 1787745687.022, "level": "INFO", "msg": "asked: What is the difference between SELECT an", "logger": "pipeline"}
+{"ts": 1787745687.494, "level": "INFO", "msg": "asked: What does HTTP status code 422 mean?", "logger": "pipeline"}
+{"ts": 1787745687.594, "level": "INFO", "msg": "batch 4: 5 questions", "logger": "pipeline"}
+{"ts": 1787745688.253, "level": "INFO", "msg": "asked: What is the purpose of a unit test?", "logger": "pipeline"}
+{"ts": 1787745688.382, "level": "INFO", "msg": "asked: How does a Python virtual environment he", "logger": "pipeline"}
+{"ts": 1787745688.697, "level": "INFO", "msg": "asked: Explain what dependency injection means ", "logger": "pipeline"}
+{"ts": 1787745688.721, "level": "INFO", "msg": "asked: Name three reasons an LLM might hallucin", "logger": "pipeline"}
+{"ts": 1787745689.003, "level": "INFO", "msg": "asked: What does \"rate limiting\" mean in the co", "logger": "pipeline"}
+{"ts": 1787745689.104, "level": "INFO", "msg": "summary: {\"started_at\":1787745683.1375103,\"elapsed_seconds\":5.965975284576416,\"n_questions\":20,\"n_succeeded\":20,\"n_retries_total\":0,\"total_cost_usd\":0.0020000000000000005,\"fail_rate\":0.0,\"use_fake\":true}", "logger": "pipeline"}
+{"ts": 1787746041.531, "level": "INFO", "msg": "config:{'questions_csv': 'data/questions.csv', 'results_json': 'results.json', 'results_db': 'results.db', 'batch_size': 5, 'fail_rate': 0.0, 'model': 'gpt-4o-mini', 'use_fake': True}", "logger": "pipeline"}
+{"ts": 1787746041.534, "level": "INFO", "msg": "loaded 20questions", "logger": "pipeline"}
+{"ts": 1787746041.535, "level": "INFO", "msg": "batch 1: 5 questions", "logger": "pipeline"}
+{"ts": 1787746042.009, "level": "INFO", "msg": "asked: What is a Pydantic BaseModel and how doe", "logger": "pipeline"}
+{"ts": 1787746042.788, "level": "INFO", "msg": "asked: Explain async and await in Python in two", "logger": "pipeline"}
+{"ts": 1787746042.953, "level": "INFO", "msg": "asked: Why might an LLM produce confident but w", "logger": "pipeline"}
+{"ts": 1787746042.97, "level": "INFO", "msg": "asked: What is retrieval-augmented generation i", "logger": "pipeline"}
+{"ts": 1787746042.991, "level": "INFO", "msg": "asked: Name three real-world uses of vector dat", "logger": "pipeline"}
+{"ts": 1787746043.092, "level": "INFO", "msg": "batch 2: 5 questions", "logger": "pipeline"}
+{"ts": 1787746043.629, "level": "INFO", "msg": "asked: What's the difference between asyncio.ga", "logger": "pipeline"}
+{"ts": 1787746043.653, "level": "INFO", "msg": "asked: How does exponential backoff differ from", "logger": "pipeline"}
+{"ts": 1787746043.822, "level": "INFO", "msg": "asked: What is the role of a foreign key in a S", "logger": "pipeline"}
+{"ts": 1787746044.257, "level": "INFO", "msg": "asked: What does the @app.post decorator do in ", "logger": "pipeline"}
+{"ts": 1787746044.386, "level": "INFO", "msg": "asked: Why is JSON-formatted logging better tha", "logger": "pipeline"}
+{"ts": 1787746044.487, "level": "INFO", "msg": "batch 3: 5 questions", "logger": "pipeline"}
+{"ts": 1787746044.801, "level": "INFO", "msg": "asked: What are the main steps in a typical RAG", "logger": "pipeline"}
+{"ts": 1787746044.863, "level": "INFO", "msg": "asked: What does HTTP status code 422 mean?", "logger": "pipeline"}
+{"ts": 1787746045.085, "level": "INFO", "msg": "asked: Why should API keys be loaded from envir", "logger": "pipeline"}
+{"ts": 1787746045.649, "level": "INFO", "msg": "asked: Why do we use parameterised SQL queries ", "logger": "pipeline"}
+{"ts": 1787746045.726, "level": "INFO", "msg": "asked: What is the difference between SELECT an", "logger": "pipeline"}
+{"ts": 1787746045.826, "level": "INFO", "msg": "batch 4: 5 questions", "logger": "pipeline"}
+{"ts": 1787746046.172, "level": "INFO", "msg": "asked: Explain what dependency injection means ", "logger": "pipeline"}
+{"ts": 1787746046.422, "level": "INFO", "msg": "asked: What is the purpose of a unit test?", "logger": "pipeline"}
+{"ts": 1787746046.878, "level": "INFO", "msg": "asked: How does a Python virtual environment he", "logger": "pipeline"}
+{"ts": 1787746047.032, "level": "INFO", "msg": "asked: Name three reasons an LLM might hallucin", "logger": "pipeline"}
+{"ts": 1787746047.124, "level": "INFO", "msg": "asked: What does \"rate limiting\" mean in the co", "logger": "pipeline"}
+{"ts": 1787746047.225, "level": "INFO", "msg": "summary: {\"started_at\":1787746041.5351865,\"elapsed_seconds\":5.689450979232788,\"n_questions\":20,\"n_succeeded\":20,\"n_retries_total\":0,\"total_cost_usd\":0.0020000000000000005,\"fail_rate\":0.0,\"use_fake\":true}", "logger": "pipeline"}
+{"ts": 1787747561.677, "level": "INFO", "msg": "config:{'questions_csv': 'data/questions.csv', 'results_json': 'results.json', 'results_db': 'results.db', 'batch_size': 5, 'fail_rate': 0.0, 'model': 'gpt-4o-mini', 'use_fake': True}", "logger": "pipeline"}
+{"ts": 1787747561.679, "level": "INFO", "msg": "loaded 20questions", "logger": "pipeline"}
+{"ts": 1787747561.682, "level": "INFO", "msg": "batch 1: 5 questions", "logger": "pipeline"}
+{"ts": 1787747562.259, "level": "INFO", "msg": "asked: Why might an LLM produce confident but w", "logger": "pipeline"}
+{"ts": 1787747562.469, "level": "INFO", "msg": "asked: Explain async and await in Python in two", "logger": "pipeline"}
+{"ts": 1787747562.477, "level": "INFO", "msg": "asked: Name three real-world uses of vector dat", "logger": "pipeline"}
+{"ts": 1787747562.523, "level": "INFO", "msg": "asked: What is retrieval-augmented generation i", "logger": "pipeline"}
+{"ts": 1787747563.059, "level": "INFO", "msg": "asked: What is a Pydantic BaseModel and how doe", "logger": "pipeline"}
+{"ts": 1787747563.159, "level": "INFO", "msg": "batch 2: 5 questions", "logger": "pipeline"}
+{"ts": 1787747563.811, "level": "INFO", "msg": "asked: Why is JSON-formatted logging better tha", "logger": "pipeline"}
+{"ts": 1787747564.041, "level": "INFO", "msg": "asked: What does the @app.post decorator do in ", "logger": "pipeline"}
+{"ts": 1787747564.06, "level": "INFO", "msg": "asked: What's the difference between asyncio.ga", "logger": "pipeline"}
+{"ts": 1787747564.158, "level": "INFO", "msg": "asked: How does exponential backoff differ from", "logger": "pipeline"}
+{"ts": 1787747564.399, "level": "INFO", "msg": "asked: What is the role of a foreign key in a S", "logger": "pipeline"}
+{"ts": 1787747564.5, "level": "INFO", "msg": "batch 3: 5 questions", "logger": "pipeline"}
+{"ts": 1787747564.808, "level": "INFO", "msg": "asked: Why do we use parameterised SQL queries ", "logger": "pipeline"}
+{"ts": 1787747564.907, "level": "INFO", "msg": "asked: What are the main steps in a typical RAG", "logger": "pipeline"}
+{"ts": 1787747565.276, "level": "INFO", "msg": "asked: What does HTTP status code 422 mean?", "logger": "pipeline"}
+{"ts": 1787747565.755, "level": "INFO", "msg": "asked: Why should API keys be loaded from envir", "logger": "pipeline"}
+{"ts": 1787747565.951, "level": "INFO", "msg": "asked: What is the difference between SELECT an", "logger": "pipeline"}
+{"ts": 1787747566.051, "level": "INFO", "msg": "batch 4: 5 questions", "logger": "pipeline"}
+{"ts": 1787747566.46, "level": "INFO", "msg": "asked: What does \"rate limiting\" mean in the co", "logger": "pipeline"}
+{"ts": 1787747566.479, "level": "INFO", "msg": "asked: How does a Python virtual environment he", "logger": "pipeline"}
+{"ts": 1787747566.574, "level": "INFO", "msg": "asked: Name three reasons an LLM might hallucin", "logger": "pipeline"}
+{"ts": 1787747566.654, "level": "INFO", "msg": "asked: Explain what dependency injection means ", "logger": "pipeline"}
+{"ts": 1787747567.463, "level": "INFO", "msg": "asked: What is the purpose of a unit test?", "logger": "pipeline"}
+{"ts": 1787747567.563, "level": "INFO", "msg": "summary: {\"started_at\":1787747561.6818871,\"elapsed_seconds\":5.8812761306762695,\"n_questions\":20,\"n_succeeded\":20,\"n_retries_total\":0,\"total_cost_usd\":0.0020000000000000005,\"fail_rate\":0.0,\"use_fake\":true}", "logger": "pipeline"}
+{"ts": 1787747856.947, "level": "INFO", "msg": "config:{'questions_csv': 'data/questions.csv', 'results_json': 'results.json', 'results_db': 'results.db', 'batch_size': 5, 'fail_rate': 0.0, 'model': 'gpt-4o-mini', 'use_fake': True}", "logger": "pipeline"}
+{"ts": 1787747856.949, "level": "INFO", "msg": "loaded 20questions", "logger": "pipeline"}
+{"ts": 1787747856.952, "level": "INFO", "msg": "batch 1: 5 questions", "logger": "pipeline"}
+{"ts": 1787747857.347, "level": "INFO", "msg": "asked: Name three real-world uses of vector dat", "logger": "pipeline"}
+{"ts": 1787747857.384, "level": "INFO", "msg": "asked: Why might an LLM produce confident but w", "logger": "pipeline"}
+{"ts": 1787747857.645, "level": "INFO", "msg": "asked: What is a Pydantic BaseModel and how doe", "logger": "pipeline"}
+{"ts": 1787747858.002, "level": "INFO", "msg": "asked: Explain async and await in Python in two", "logger": "pipeline"}
+{"ts": 1787747858.382, "level": "INFO", "msg": "asked: What is retrieval-augmented generation i", "logger": "pipeline"}
+{"ts": 1787747858.482, "level": "INFO", "msg": "batch 2: 5 questions", "logger": "pipeline"}
+{"ts": 1787747859.011, "level": "INFO", "msg": "asked: What is the role of a foreign key in a S", "logger": "pipeline"}
+{"ts": 1787747859.12, "level": "INFO", "msg": "asked: What does the @app.post decorator do in ", "logger": "pipeline"}
+{"ts": 1787747859.184, "level": "INFO", "msg": "asked: How does exponential backoff differ from", "logger": "pipeline"}
+{"ts": 1787747859.402, "level": "INFO", "msg": "asked: What's the difference between asyncio.ga", "logger": "pipeline"}
+{"ts": 1787747859.721, "level": "INFO", "msg": "asked: Why is JSON-formatted logging better tha", "logger": "pipeline"}
+{"ts": 1787747859.821, "level": "INFO", "msg": "batch 3: 5 questions", "logger": "pipeline"}
+{"ts": 1787747860.204, "level": "INFO", "msg": "asked: What is the difference between SELECT an", "logger": "pipeline"}
+{"ts": 1787747860.224, "level": "INFO", "msg": "asked: Why do we use parameterised SQL queries ", "logger": "pipeline"}
+{"ts": 1787747860.489, "level": "INFO", "msg": "asked: What does HTTP status code 422 mean?", "logger": "pipeline"}
+{"ts": 1787747860.746, "level": "INFO", "msg": "asked: What are the main steps in a typical RAG", "logger": "pipeline"}
+{"ts": 1787747861.039, "level": "INFO", "msg": "asked: Why should API keys be loaded from envir", "logger": "pipeline"}
+{"ts": 1787747861.139, "level": "INFO", "msg": "batch 4: 5 questions", "logger": "pipeline"}
+{"ts": 1787747861.651, "level": "INFO", "msg": "asked: What does \"rate limiting\" mean in the co", "logger": "pipeline"}
+{"ts": 1787747861.934, "level": "INFO", "msg": "asked: What is the purpose of a unit test?", "logger": "pipeline"}
+{"ts": 1787747862.14, "level": "INFO", "msg": "asked: Explain what dependency injection means ", "logger": "pipeline"}
+{"ts": 1787747862.146, "level": "INFO", "msg": "asked: Name three reasons an LLM might hallucin", "logger": "pipeline"}
+{"ts": 1787747862.483, "level": "INFO", "msg": "asked: How does a Python virtual environment he", "logger": "pipeline"}
+{"ts": 1787747862.584, "level": "INFO", "msg": "summary: {\"started_at\":1787747856.9515722,\"elapsed_seconds\":5.63231086730957,\"n_questions\":20,\"n_succeeded\":20,\"n_retries_total\":0,\"total_cost_usd\":0.0020000000000000005,\"fail_rate\":0.0,\"use_fake\":true}", "logger": "pipeline"}
+{"ts": 1787749460.659, "level": "INFO", "msg": "config:{'questions_csv': 'data/questions.csv', 'results_json': 'results.json', 'results_db': 'results.db', 'batch_size': 5, 'fail_rate': 0.3, 'model': 'gpt-4o-mini', 'use_fake': True}", "logger": "pipeline"}
+{"ts": 1787749460.661, "level": "INFO", "msg": "loaded 20questions", "logger": "pipeline"}
+{"ts": 1787749460.663, "level": "INFO", "msg": "batch 1: 5 questions", "logger": "pipeline"}
+{"ts": 1787749461.384, "level": "WARNING", "msg": "retry 1 for: What is retrieval-augmented generation i (simulated transient failure: What is retrieval-augmented generation in one sent)", "logger": "pipeline"}
+{"ts": 1787749461.425, "level": "INFO", "msg": "asked: What is a Pydantic BaseModel and how doe", "logger": "pipeline"}
+{"ts": 1787749461.563, "level": "INFO", "msg": "asked: Name three real-world uses of vector dat", "logger": "pipeline"}
+{"ts": 1787749461.726, "level": "INFO", "msg": "asked: Why might an LLM produce confident but w", "logger": "pipeline"}
+{"ts": 1787749461.763, "level": "WARNING", "msg": "retry 1 for: Explain async and await in Python in two (simulated transient failure: Explain async and await in Python in two sentences)", "logger": "pipeline"}
+{"ts": 1787749462.946, "level": "INFO", "msg": "asked: What is retrieval-augmented generation i", "logger": "pipeline"}
+{"ts": 1787749463.919, "level": "INFO", "msg": "asked: Explain async and await in Python in two", "logger": "pipeline"}
+{"ts": 1787749464.02, "level": "INFO", "msg": "batch 2: 5 questions", "logger": "pipeline"}
+{"ts": 1787749464.481, "level": "INFO", "msg": "asked: What is the role of a foreign key in a S", "logger": "pipeline"}
+{"ts": 1787749465.053, "level": "WARNING", "msg": "retry 1 for: What's the difference between asyncio.ga (simulated transient failure: What's the difference between asyncio.gather and a)", "logger": "pipeline"}
+{"ts": 1787749465.123, "level": "INFO", "msg": "asked: How does exponential backoff differ from", "logger": "pipeline"}
+{"ts": 1787749465.216, "level": "WARNING", "msg": "retry 1 for: Why is JSON-formatted logging better tha (simulated transient failure: Why is JSON-formatted logging better than plain te)", "logger": "pipeline"}
+{"ts": 1787749465.352, "level": "WARNING", "msg": "retry 1 for: What does the @app.post decorator do in  (simulated transient failure: What does the @app.post decorator do in FastAPI?)", "logger": "pipeline"}
+{"ts": 1787749466.886, "level": "INFO", "msg": "asked: What's the difference between asyncio.ga", "logger": "pipeline"}
+{"ts": 1787749467.023, "level": "WARNING", "msg": "retry 2 for: Why is JSON-formatted logging better tha (simulated transient failure: Why is JSON-formatted logging better than plain te)", "logger": "pipeline"}
+{"ts": 1787749467.272, "level": "INFO", "msg": "asked: What does the @app.post decorator do in ", "logger": "pipeline"}
+{"ts": 1787749469.511, "level": "INFO", "msg": "asked: Why is JSON-formatted logging better tha", "logger": "pipeline"}
+{"ts": 1787749469.611, "level": "INFO", "msg": "batch 3: 5 questions", "logger": "pipeline"}
+{"ts": 1787749469.944, "level": "WARNING", "msg": "retry 1 for: Why do we use parameterised SQL queries  (simulated transient failure: Why do we use parameterised SQL queries instead of)", "logger": "pipeline"}
+{"ts": 1787749470.12, "level": "WARNING", "msg": "retry 1 for: What are the main steps in a typical RAG (simulated transient failure: What are the main steps in a typical RAG pipeline?)", "logger": "pipeline"}
+{"ts": 1787749470.32, "level": "WARNING", "msg": "retry 1 for: Why should API keys be loaded from envir (simulated transient failure: Why should API keys be loaded from environment var)", "logger": "pipeline"}
+{"ts": 1787749470.521, "level": "INFO", "msg": "asked: What does HTTP status code 422 mean?", "logger": "pipeline"}
+{"ts": 1787749471.07, "level": "WARNING", "msg": "retry 1 for: What is the difference between SELECT an (simulated transient failure: What is the difference between SELECT and INSERT i)", "logger": "pipeline"}
+{"ts": 1787749471.493, "level": "INFO", "msg": "asked: What are the main steps in a typical RAG", "logger": "pipeline"}
+{"ts": 1787749471.793, "level": "INFO", "msg": "asked: Why do we use parameterised SQL queries ", "logger": "pipeline"}
+{"ts": 1787749472.554, "level": "INFO", "msg": "asked: Why should API keys be loaded from envir", "logger": "pipeline"}
+{"ts": 1787749473.03, "level": "INFO", "msg": "asked: What is the difference between SELECT an", "logger": "pipeline"}
+{"ts": 1787749473.131, "level": "INFO", "msg": "batch 4: 5 questions", "logger": "pipeline"}
+{"ts": 1787749473.923, "level": "INFO", "msg": "asked: Name three reasons an LLM might hallucin", "logger": "pipeline"}
+{"ts": 1787749474.034, "level": "INFO", "msg": "asked: What is the purpose of a unit test?", "logger": "pipeline"}
+{"ts": 1787749474.27, "level": "INFO", "msg": "asked: Explain what dependency injection means ", "logger": "pipeline"}
+{"ts": 1787749474.41, "level": "INFO", "msg": "asked: What does \"rate limiting\" mean in the co", "logger": "pipeline"}
+{"ts": 1787749474.572, "level": "WARNING", "msg": "retry 1 for: How does a Python virtual environment he (simulated transient failure: How does a Python virtual environment help with pa)", "logger": "pipeline"}
+{"ts": 1787749476.907, "level": "WARNING", "msg": "retry 2 for: How does a Python virtual environment he (simulated transient failure: How does a Python virtual environment help with pa)", "logger": "pipeline"}
+{"ts": 1787749961.211, "level": "INFO", "msg": "config:{'questions_csv': 'data/questions.csv', 'results_json': 'results.json', 'results_db': 'results.db', 'batch_size': 5, 'fail_rate': 0.2, 'model': 'gpt-4o-mini', 'use_fake': True}", "logger": "pipeline"}
+{"ts": 1787749961.213, "level": "INFO", "msg": "loaded 20questions", "logger": "pipeline"}
+{"ts": 1787749961.215, "level": "INFO", "msg": "batch 1: 5 questions", "logger": "pipeline"}
+{"ts": 1787749961.818, "level": "INFO", "msg": "asked: Why might an LLM produce confident but w", "logger": "pipeline"}
+{"ts": 1787749962.295, "level": "WARNING", "msg": "retry 1 for: Explain async and await in Python in two (simulated transient failure: Explain async and await in Python in two sentences)", "logger": "pipeline"}
+{"ts": 1787749962.409, "level": "INFO", "msg": "asked: What is a Pydantic BaseModel and how doe", "logger": "pipeline"}
+{"ts": 1787749962.496, "level": "INFO", "msg": "asked: What is retrieval-augmented generation i", "logger": "pipeline"}
+{"ts": 1787749962.593, "level": "INFO", "msg": "asked: Name three real-world uses of vector dat", "logger": "pipeline"}
+{"ts": 1787749964.032, "level": "INFO", "msg": "asked: Explain async and await in Python in two", "logger": "pipeline"}
+{"ts": 1787749964.132, "level": "INFO", "msg": "batch 2: 5 questions", "logger": "pipeline"}
+{"ts": 1787749964.95, "level": "INFO", "msg": "asked: How does exponential backoff differ from", "logger": "pipeline"}
+{"ts": 1787749965.208, "level": "WARNING", "msg": "retry 1 for: What is the role of a foreign key in a S (simulated transient failure: What is the role of a foreign key in a SQLite sche)", "logger": "pipeline"}
+{"ts": 1787749965.238, "level": "INFO", "msg": "asked: What does the @app.post decorator do in ", "logger": "pipeline"}
+{"ts": 1787749965.603, "level": "WARNING", "msg": "retry 1 for: What's the difference between asyncio.ga (simulated transient failure: What's the difference between asyncio.gather and a)", "logger": "pipeline"}
+{"ts": 1787749965.63, "level": "INFO", "msg": "asked: Why is JSON-formatted logging better tha", "logger": "pipeline"}
+{"ts": 1787749967.02, "level": "INFO", "msg": "asked: What is the role of a foreign key in a S", "logger": "pipeline"}
+{"ts": 1787749967.943, "level": "INFO", "msg": "asked: What's the difference between asyncio.ga", "logger": "pipeline"}
+{"ts": 1787749968.043, "level": "INFO", "msg": "batch 3: 5 questions", "logger": "pipeline"}
+{"ts": 1787749968.696, "level": "INFO", "msg": "asked: Why do we use parameterised SQL queries ", "logger": "pipeline"}
+{"ts": 1787749968.777, "level": "INFO", "msg": "asked: What does HTTP status code 422 mean?", "logger": "pipeline"}
+{"ts": 1787749968.952, "level": "WARNING", "msg": "retry 1 for: What is the difference between SELECT an (simulated transient failure: What is the difference between SELECT and INSERT i)", "logger": "pipeline"}
+{"ts": 1787749969.311, "level": "INFO", "msg": "asked: Why should API keys be loaded from envir", "logger": "pipeline"}
+{"ts": 1787749969.364, "level": "INFO", "msg": "asked: What are the main steps in a typical RAG", "logger": "pipeline"}
+{"ts": 1787749970.91, "level": "INFO", "msg": "asked: What is the difference between SELECT an", "logger": "pipeline"}
+{"ts": 1787749971.01, "level": "INFO", "msg": "batch 4: 5 questions", "logger": "pipeline"}
+{"ts": 1787749971.58, "level": "INFO", "msg": "asked: Name three reasons an LLM might hallucin", "logger": "pipeline"}
+{"ts": 1787749972.046, "level": "INFO", "msg": "asked: What is the purpose of a unit test?", "logger": "pipeline"}
+{"ts": 1787749972.254, "level": "INFO", "msg": "asked: Explain what dependency injection means ", "logger": "pipeline"}
+{"ts": 1787749972.37, "level": "INFO", "msg": "asked: What does \"rate limiting\" mean in the co", "logger": "pipeline"}
+{"ts": 1787749972.412, "level": "INFO", "msg": "asked: How does a Python virtual environment he", "logger": "pipeline"}
+{"ts": 1787749972.512, "level": "INFO", "msg": "summary: {\"started_at\":1787749961.2144203,\"elapsed_seconds\":11.297786712646484,\"n_questions\":20,\"n_succeeded\":20,\"n_retries_total\":4,\"total_cost_usd\":0.0020000000000000005,\"fail_rate\":0.2,\"use_fake\":true}", "logger": "pipeline"}
+{"ts": 1787752086.843, "level": "INFO", "msg": "config:{'questions_csv': 'data/questions.csv', 'results_json': 'results.json', 'results_db': 'results.db', 'batch_size': 5, 'fail_rate': 0.2, 'model': 'gpt-4o-mini', 'use_fake': True}", "logger": "pipeline"}
+{"ts": 1787752086.848, "level": "INFO", "msg": "loaded 20questions", "logger": "pipeline"}
+{"ts": 1787752086.848, "level": "INFO", "msg": "batch 1: 5 questions", "logger": "pipeline"}
+{"ts": 1787752087.223, "level": "WARNING", "msg": "retry 1 for: What is a Pydantic BaseModel and how doe (simulated transient failure: What is a Pydantic BaseModel and how does it diffe)", "logger": "pipeline"}
+{"ts": 1787752087.575, "level": "INFO", "msg": "asked: Explain async and await in Python in two", "logger": "pipeline"}
+{"ts": 1787752087.667, "level": "INFO", "msg": "asked: Name three real-world uses of vector dat", "logger": "pipeline"}
+{"ts": 1787752087.671, "level": "INFO", "msg": "asked: What is retrieval-augmented generation i", "logger": "pipeline"}
+{"ts": 1787752087.681, "level": "INFO", "msg": "asked: Why might an LLM produce confident but w", "logger": "pipeline"}
+{"ts": 1787752089.309, "level": "INFO", "msg": "asked: What is a Pydantic BaseModel and how doe", "logger": "pipeline"}
+{"ts": 1787752089.409, "level": "INFO", "msg": "batch 2: 5 questions", "logger": "pipeline"}
+{"ts": 1787752090.209, "level": "INFO", "msg": "asked: What is the role of a foreign key in a S", "logger": "pipeline"}
+{"ts": 1787752090.368, "level": "INFO", "msg": "asked: How does exponential backoff differ from", "logger": "pipeline"}
+{"ts": 1787752090.54, "level": "WARNING", "msg": "retry 1 for: What does the @app.post decorator do in  (simulated transient failure: What does the @app.post decorator do in FastAPI?)", "logger": "pipeline"}
+{"ts": 1787752090.578, "level": "INFO", "msg": "asked: Why is JSON-formatted logging better tha", "logger": "pipeline"}
+{"ts": 1787752090.849, "level": "INFO", "msg": "asked: What's the difference between asyncio.ga", "logger": "pipeline"}
+{"ts": 1787752091.891, "level": "INFO", "msg": "asked: What does the @app.post decorator do in ", "logger": "pipeline"}
+{"ts": 1787752091.991, "level": "INFO", "msg": "batch 3: 5 questions", "logger": "pipeline"}
+{"ts": 1787752092.439, "level": "WARNING", "msg": "retry 1 for: Why should API keys be loaded from envir (simulated transient failure: Why should API keys be loaded from environment var)", "logger": "pipeline"}
+{"ts": 1787752092.72, "level": "INFO", "msg": "asked: What are the main steps in a typical RAG", "logger": "pipeline"}
+{"ts": 1787752092.893, "level": "INFO", "msg": "asked: What is the difference between SELECT an", "logger": "pipeline"}
+{"ts": 1787752092.939, "level": "WARNING", "msg": "retry 1 for: Why do we use parameterised SQL queries  (simulated transient failure: Why do we use parameterised SQL queries instead of)", "logger": "pipeline"}
+{"ts": 1787752093.083, "level": "INFO", "msg": "asked: What does HTTP status code 422 mean?", "logger": "pipeline"}
+{"ts": 1787752093.802, "level": "INFO", "msg": "asked: Why should API keys be loaded from envir", "logger": "pipeline"}
+{"ts": 1787752094.661, "level": "INFO", "msg": "asked: Why do we use parameterised SQL queries ", "logger": "pipeline"}
+{"ts": 1787752094.762, "level": "INFO", "msg": "batch 4: 5 questions", "logger": "pipeline"}
+{"ts": 1787752095.205, "level": "INFO", "msg": "asked: How does a Python virtual environment he", "logger": "pipeline"}
+{"ts": 1787752095.246, "level": "INFO", "msg": "asked: What does \"rate limiting\" mean in the co", "logger": "pipeline"}
+{"ts": 1787752095.31, "level": "INFO", "msg": "asked: Name three reasons an LLM might hallucin", "logger": "pipeline"}
+{"ts": 1787752095.593, "level": "INFO", "msg": "asked: Explain what dependency injection means ", "logger": "pipeline"}
+{"ts": 1787752096.115, "level": "INFO", "msg": "asked: What is the purpose of a unit test?", "logger": "pipeline"}
+{"ts": 1787752096.215, "level": "INFO", "msg": "summary: {\"started_at\":1787752086.8478167,\"elapsed_seconds\":9.367323875427246,\"n_questions\":20,\"n_succeeded\":20,\"n_retries_total\":4,\"total_cost_usd\":0.0020000000000000005,\"fail_rate\":0.2,\"use_fake\":true}", "logger": "pipeline"}
+{"ts": 1787797940.432, "level": "INFO", "msg": "config:{'questions_csv': 'data/questions_small.csv', 'results_json': 'results.json', 'results_db': 'results.db', 'batch_size': 5, 'fail_rate': 0.0, 'model': 'gpt-4o-mini', 'use_fake': False}", "logger": "pipeline"}
+{"ts": 1787797940.434, "level": "INFO", "msg": "loaded 3questions", "logger": "pipeline"}
+{"ts": 1787797940.441, "level": "INFO", "msg": "batch 1: 3 questions", "logger": "pipeline"}
+{"ts": 1787797946.835, "level": "INFO", "msg": "asked: What is retrieval-augmented generation i", "logger": "pipeline"}
+{"ts": 1787797950.546, "level": "INFO", "msg": "asked: Why might an LLM produce confident but w", "logger": "pipeline"}
+{"ts": 1787797951.866, "level": "INFO", "msg": "asked: Name three real-world uses of vector dat", "logger": "pipeline"}
+{"ts": 1787797951.967, "level": "INFO", "msg": "summary: {\"started_at\":1787797940.4412167,\"elapsed_seconds\":11.525249481201172,\"n_questions\":3,\"n_succeeded\":3,\"n_retries_total\":0,\"total_cost_usd\":0.00030000000000000003,\"fail_rate\":0.0,\"use_fake\":false}", "logger": "pipeline"}
+{"ts": 1787798185.009, "level": "INFO", "msg": "config:{'questions_csv': 'data/questions_small.csv', 'results_json': 'results.json', 'results_db': 'results.db', 'batch_size': 5, 'fail_rate': 0.0, 'model': 'gpt-4o-mini', 'use_fake': False}", "logger": "pipeline"}
+{"ts": 1787798185.011, "level": "INFO", "msg": "loaded 3questions", "logger": "pipeline"}
+{"ts": 1787798185.014, "level": "INFO", "msg": "batch 1: 3 questions", "logger": "pipeline"}
+{"ts": 1787798186.413, "level": "INFO", "msg": "asked: What is retrieval-augmented generation i", "logger": "pipeline"}
+{"ts": 1787798189.065, "level": "INFO", "msg": "asked: Name three real-world uses of vector dat", "logger": "pipeline"}
+{"ts": 1787798189.603, "level": "INFO", "msg": "asked: Why might an LLM produce confident but w", "logger": "pipeline"}
+{"ts": 1787798189.704, "level": "INFO", "msg": "summary: {\"started_at\":1787798185.0134,\"elapsed_seconds\":4.690937280654907,\"n_questions\":3,\"n_succeeded\":3,\"n_retries_total\":0,\"total_cost_usd\":0.00030000000000000003,\"fail_rate\":0.0,\"use_fake\":false}", "logger": "pipeline"}
+{"ts": 1787799434.686, "level": "INFO", "msg": "config:{'questions_csv': 'data/questions_small.csv', 'results_json': 'results.json', 'results_db': 'results.db', 'batch_size': 5, 'fail_rate': 0.0, 'model': 'gpt-4o-mini', 'use_fake': False}", "logger": "pipeline"}
+{"ts": 1787799434.688, "level": "INFO", "msg": "loaded 3questions", "logger": "pipeline"}
+{"ts": 1787799434.691, "level": "INFO", "msg": "batch 1: 3 questions", "logger": "pipeline"}
+{"ts": 1787799435.859, "level": "INFO", "msg": "asked: What is retrieval-augmented generation i", "logger": "pipeline"}
+{"ts": 1787799440.002, "level": "INFO", "msg": "asked: Why might an LLM produce confident but w", "logger": "pipeline"}
+{"ts": 1787799440.248, "level": "INFO", "msg": "asked: Name three real-world uses of vector dat", "logger": "pipeline"}
+{"ts": 1787799440.349, "level": "INFO", "msg": "summary: {\"started_at\":1787799434.6903698,\"elapsed_seconds\":5.6586997509002686,\"n_questions\":3,\"n_succeeded\":3,\"n_retries_total\":0,\"total_cost_usd\":0.00030000000000000003,\"fail_rate\":0.0,\"use_fake\":false}", "logger": "pipeline"}
+{"ts": 1787799596.004, "level": "INFO", "msg": "config:{'questions_csv': 'data/questions.csv', 'results_json': 'results.json', 'results_db': 'results.db', 'batch_size': 5, 'fail_rate': 0.0, 'model': 'gpt-4o-mini', 'use_fake': False}", "logger": "pipeline"}
+{"ts": 1787799596.006, "level": "INFO", "msg": "loaded 20questions", "logger": "pipeline"}
+{"ts": 1787799596.008, "level": "INFO", "msg": "batch 1: 5 questions", "logger": "pipeline"}
+{"ts": 1787799597.394, "level": "INFO", "msg": "asked: What is retrieval-augmented generation i", "logger": "pipeline"}
+{"ts": 1787799597.417, "level": "INFO", "msg": "asked: Explain async and await in Python in two", "logger": "pipeline"}
+{"ts": 1787799600.464, "level": "INFO", "msg": "asked: Name three real-world uses of vector dat", "logger": "pipeline"}
+{"ts": 1787799601.524, "level": "INFO", "msg": "asked: Why might an LLM produce confident but w", "logger": "pipeline"}
+{"ts": 1787799606.762, "level": "INFO", "msg": "asked: What is a Pydantic BaseModel and how doe", "logger": "pipeline"}
+{"ts": 1787799606.862, "level": "INFO", "msg": "batch 2: 5 questions", "logger": "pipeline"}
+{"ts": 1787799610.427, "level": "INFO", "msg": "asked: What does the @app.post decorator do in ", "logger": "pipeline"}
+{"ts": 1787799611.931, "level": "INFO", "msg": "asked: Why is JSON-formatted logging better tha", "logger": "pipeline"}
+{"ts": 1787799612.065, "level": "INFO", "msg": "asked: How does exponential backoff differ from", "logger": "pipeline"}
+{"ts": 1787799613.32, "level": "INFO", "msg": "asked: What's the difference between asyncio.ga", "logger": "pipeline"}
+{"ts": 1787799614.554, "level": "INFO", "msg": "asked: What is the role of a foreign key in a S", "logger": "pipeline"}
+{"ts": 1787799614.655, "level": "INFO", "msg": "batch 3: 5 questions", "logger": "pipeline"}
+{"ts": 1787799617.135, "level": "INFO", "msg": "asked: What does HTTP status code 422 mean?", "logger": "pipeline"}
+{"ts": 1787799619.522, "level": "INFO", "msg": "asked: What is the difference between SELECT an", "logger": "pipeline"}
+{"ts": 1787799620.319, "level": "INFO", "msg": "asked: Why should API keys be loaded from envir", "logger": "pipeline"}
+{"ts": 1787799620.882, "level": "INFO", "msg": "asked: What are the main steps in a typical RAG", "logger": "pipeline"}
+{"ts": 1787799621.02, "level": "INFO", "msg": "asked: Why do we use parameterised SQL queries ", "logger": "pipeline"}
+{"ts": 1787799621.12, "level": "INFO", "msg": "batch 4: 5 questions", "logger": "pipeline"}
+{"ts": 1787799624.792, "level": "INFO", "msg": "asked: Name three reasons an LLM might hallucin", "logger": "pipeline"}
+{"ts": 1787799625.561, "level": "INFO", "msg": "asked: What is the purpose of a unit test?", "logger": "pipeline"}
+{"ts": 1787799626.418, "level": "INFO", "msg": "asked: How does a Python virtual environment he", "logger": "pipeline"}
+{"ts": 1787799628.321, "level": "INFO", "msg": "asked: What does \"rate limiting\" mean in the co", "logger": "pipeline"}
+{"ts": 1787799628.592, "level": "INFO", "msg": "asked: Explain what dependency injection means ", "logger": "pipeline"}
+{"ts": 1787799628.693, "level": "INFO", "msg": "summary: {\"started_at\":1787799596.0075173,\"elapsed_seconds\":32.6851372718811,\"n_questions\":20,\"n_succeeded\":20,\"n_retries_total\":0,\"total_cost_usd\":0.0020000000000000005,\"fail_rate\":0.0,\"use_fake\":false}", "logger": "pipeline"}
