@@ -160,6 +160,7 @@ def  summarise_run(answers:list[Answer], *, started_at: float, elapsed: float, f
 # ---------- main ----------
 if __name__ == "__main__":
     import sys
+    import argparse
 
     #fail_rate = float(sys.argv[1]) if len(sys.argv) > 1 else 0.0
     settings = Settings()
@@ -172,7 +173,15 @@ if __name__ == "__main__":
     questions=load_questions(settings.questions_csv)
     log.info(f"loaded {len(questions)}questions")
 
-    started = time.time()
+    parser = argparse.ArgumentParser(description="Run the RAG pipeline")
+    parser.add_argument("--limit", "-n",type=int,help="Process only the first N questions (>=0). If omitted, process all questions.")
+    args = parser.parse_args()
+
+    if args.limit is not None:
+        questions = questions[: args.limit]
+        log.info(f"limiting questions to first {args.limit}")
+    
+    started=time.time()
     #answers = asyncio.run(run_batch(sample, fail_rate=settings.fail_rate))
     answers=asyncio.run(run_in_batches(questions,settings.batch_size,fail_rate=settings.fail_rate))
     
@@ -193,7 +202,6 @@ if __name__ == "__main__":
     for a in answers:
         print(f"- {a.text[:180]}")
     
-
     from .store import connect , write_run ,write_answers 
 
     with connect(settings.results_db) as con:
