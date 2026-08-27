@@ -9,7 +9,7 @@ from pathlib import Path
 from pydantic import BaseModel,Field
 
 class Settings(BaseModel):
-    questions_csv: Path  = Path("data/questions_small.csv")
+    questions_csv: Path  = Path("data/questions.csv")
     results_json:  Path  = Path("results.json")
     results_db:    Path  = Path("results.db")
     batch_size:    int   = Field(5,   gt=0, le=20)
