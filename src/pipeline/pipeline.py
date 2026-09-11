@@ -1,211 +1,231 @@
-"""pipeline.py — Week 2 hands-on starter.
+"""W4 STARTER — src/pipeline/pipeline.py
 
-We'll fill in the TODOs together during the live session. The pieces:
 
-    Step 2 — async def ask_llm                 (one call)
-    Step 3 — ask_llm_with_retry                (exponential backoff)
-    Step 4 — run_batch with asyncio.gather     (parallel fan-out)
-    Step 5 — JSON-formatted structured logging
+The W3 version of this file is your starting point. You'll modify three things:
 
-For the live demo we call ``fake_ask_llm`` from ``fake_llm.py`` —
-no API quota, no network flakiness, and a ``fail_rate`` knob so retries
-fire on demand. In the lab you'll swap to the real ``AsyncOpenAI`` client
-(same ``Question``/``Answer`` shape — only one import changes).
+  • ask_llm — switch to tool-calling so the LLM returns structured args
+    matching your richer Answer shape (content, confidence, sources).
+  • stream_answer — replace simulated streaming (asyncio.sleep) with real
+    OpenAI streaming (stream=True + chunk.choices[0].delta.content).
+  • cost wiring — read response.usage and compute real cost_usd via cost.py.
 
-Run it (after the TODOs are filled):
-    python pipeline.py           # fail_rate = 0.0  (clean parallel run)
-    python pipeline.py 0.4       # fail_rate = 0.4  (forces retries)
+The W3 contract is sacred. The public shape of these functions does not
+change — Question in, Answer out (or async generator of str for streaming).
 """
 from __future__ import annotations
+
 import asyncio
-import json
 import logging
-import time
-import csv
-from pathlib import Path
+from typing import AsyncIterator
+import json
 
-# Live-session stand-in. Same Pydantic shape as the real call.
-#from .fake_llm import Question, Answer, fake_ask_llm, FakeLLMError
+from openai import AsyncOpenAI
 
-from .logging_config import get_logger
-from .settings import Settings, RunSummary 
-# ─────────────────────────────────────────────────────────────────────────────
-# Logger — shared across the package
-# ─────────────────────────────────────────────────────────────────────────────
-log = get_logger()
+from .cost import compute_cost_usd
+from .models import Answer, Question
+from .settings import Settings
 
-_settings_for_import = Settings()
-
-if _settings_for_import.use_fake:
-    from .fake_llm import Question, Answer, fake_ask_llm, FakeLLMError
-else:
-    from dotenv import load_dotenv
-    from openai import AsyncOpenAI
-    from pydantic import BaseModel
-
-    load_dotenv()
-    _client = AsyncOpenAI()
-
-    class Question(BaseModel):
-        text: str
-
-    class Answer(BaseModel):
-        question: str
-        text:     str
-        cost_usd: float
-        retries:  int = 0
+logger = logging.getLogger(__name__)
 
 
-def load_questions(path: str | Path = "data/questions.csv") -> list[Question]:
-    with open(path, newline="", encoding="utf-8") as f:
-        rows = list(csv.DictReader(f))
-    return [Question(text=row["text"]) for row in rows if row.get("text")]
+# ─── Tool schema for structured outputs (Step 1b) ───────────────────────────
+# TODO Step 1b — define the answer_question tool schema below.
+#
+# The tool must declare three required parameters:
+#   - content:    string
+#   - confidence: number between 0 and 1
+#   - sources:    array of strings (can be empty)
+#
+# OpenAI tool schema shape:
+#   {"type": "function",
+#    "function": {"name": "...",
+#                 "description": "...",
+#                 "parameters": {"type": "object",
+#                                "properties": {...},
+#                                "required": [...]}}}
 
-# ---------- Step 2: one async call ----------
-async def ask_llm(q: Question, fail_rate: float = 0.0) -> Answer:
-    """One call. Live demo: fake. Lab: real AsyncOpenAI (same signature)."""
-    # TODO (Step 2): return await fake_ask_llm(q, fail_rate=fail_rate)
-    # TODO (Step 5): once logging is configured, also log here, e.g.
-    #                log.info(f"asked: {q.text[:40]}")
-    #raise NotImplementedError("Step 2 — call fake_ask_llm and return the Answer")
-    #return await fake_ask_llm(q, fail_rate=fail_rate)
-    if _settings_for_import.use_fake:
-        ans=await fake_ask_llm(q, fail_rate=fail_rate)
-    else:
-        resp = await _client.chat.completions.create(
-            model=_settings_for_import.model,
-            messages=[{"role": "user", "content": q.text}],
-        )
-        ans = Answer(
-            question=q.text,
-            text=resp.choices[0].message.content,
-            cost_usd=0.0001,                  # real cost-from-usage lands in W25
-        )   
-    
-    log.info(f"asked: {q.text[:40]}")
-    return ans
+#ANSWER_TOOL = None  # TODO replace with the dict above
+# ─── Tool schema for structured outputs ─────────────────────────────────────
+ANSWER_TOOL: dict = {
+    "type": "function",
+    "function": {
+        "name": "answer_question",
+        "description": (
+            "Return a structured answer with content, confidence, and sources."
+        ),
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "string",
+                    "description": "The answer in 2-4 sentences.",
+                },
+                "confidence": {
+                    "type": "number",
+                    "description": "How confident you are in the answer, 0.0 to 1.0.",
+                },
+                "sources": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": (
+                        "Source identifiers or URLs you used. Empty list is fine "
+                        "if you used general knowledge."
+                    ),
+                },
+            },
+            "required": ["content", "confidence", "sources"],
+        },
+    },
+}
 
-# ---------- Step 3: retry with exponential backoff ----------
-async def ask_llm_with_retry(
-    q: Question, tries: int = 3, fail_rate: float = 0.0
-) -> Answer:
-    """Retry up to ``tries`` times. Wait 1 s, 2 s, 4 s between attempts.
-    Re-raises the last exception if all attempts fail (no silent failures)."""
-    # TODO (Step 3):  
-    for attempt in range(tries):
+# ─── Fake LLM (kept from W2 for tests) ──────────────────────────────────────
+async def fake_ask_llm(question: str) -> str:
+    """Returns a canned answer with a small delay. Used by tests + offline runs."""
+    await asyncio.sleep(0.05)
+    return f"[FAKE] {question[:60]}"
+
+
+# ─── Real LLM call via tool-calling (Step 1d, 1e + Step 2d) ─────────────────
+async def ask_llm(q: Question, settings: Settings | None = None) -> Answer:
+    """Call the LLM with tool-calling, returning a structured Answer.
+
+    Retries on transient failures (kept from W2). Computes real cost from
+    response.usage (Step 2d).
+    """
+    settings = settings or Settings()
+
+    if settings.use_fake:
+        # Test/offline path — unchanged from W2.
+        content = await fake_ask_llm(q.question)
+        return Answer(content=content, cost_usd=0.0, retries=0)
+
+    client = AsyncOpenAI(api_key=settings.openai_api_key)
+    #print("key " + settings.openai_api_key)
+    #client = AsyncOpenAI()
+    last_err: Exception | None = None
+
+    for attempt in range(settings.max_retries + 1):
+
         try:
-            ans = await ask_llm(q, fail_rate=fail_rate)
-            ans.retries = attempt
-            return ans
+            # TODO Step 1d — call client.chat.completions.create with these args:
+            #   model=settings.model,
+            #   messages=[{"role": "user", "content": q.question}],
+            #   tools=[ANSWER_TOOL],
+            #   tool_choice={"type": "function",
+            #                "function": {"name": "answer_question"}},
+            #
+            # The tool_choice forces the model to call OUR tool. Without it the
+            # model might just reply in text.
+
+            #resp = None  # TODO replace with the await ... call above
+            resp = await client.chat.completions.create(
+                model=settings.model,
+                messages=[{"role": "user", "content": q.question}],
+                tools=[ANSWER_TOOL],
+                tool_choice={
+                    "type": "function",
+                    "function": {"name": "answer_question"},
+                },
+            )
+
+
+            # TODO Step 1e — parse the tool call into Answer:
+            # 1) Grab resp.choices[0].message.tool_calls[0].function.arguments
+            #    (it's a JSON string).
+            # 2) json.loads it.
+            # 3) Build Answer(content=..., confidence=..., sources=..., retries=attempt,
+            #                cost_usd=..., schema_version="v1").
+             # Parse the tool call's structured arguments.
+            tool_calls = resp.choices[0].message.tool_calls or []
+            if not tool_calls:
+                # Defensive — should not happen because tool_choice forces it,
+                # but if a provider misbehaves we want a clear error.
+                raise RuntimeError("LLM did not call the answer_question tool")
+            args_json = tool_calls[0].function.arguments
+            args = json.loads(args_json)
+
+
+            # TODO Step 2d — compute real cost:
+            #   usage = resp.usage
+            #   cost = compute_cost_usd(settings.model, usage.prompt_tokens,
+            #                           usage.completion_tokens)
+            # Pass cost into Answer above instead of the W3 placeholder.
+            # Compute real cost from usage.
+            usage = resp.usage
+            cost = compute_cost_usd(
+                settings.model,
+                usage.prompt_tokens if usage else 0,
+                usage.completion_tokens if usage else 0,
+            )
+            print(cost)
+            return Answer(
+                content=args["content"],
+                confidence=args["confidence"],
+                sources=args.get("sources", []),
+                cost_usd=cost,
+                retries=attempt,
+                schema_version="v1",
+            )
+
+
+            #raise NotImplementedError("Steps 1d, 1e, 2d — fill these in")
+
         except Exception as exc:
-            if attempt == tries - 1:
-                raise
-            log.warning(f"retry {attempt + 1} for: {q.text[:40]} ({exc})")            
-            await asyncio.sleep(2 ** attempt)
-    raise RuntimeError("unreachable")          # pragma: no cover
+            last_err = exc
+            if attempt < settings.max_retries:
+                await asyncio.sleep(settings.retry_delay_s * (2 ** attempt))
+                continue
+            raise
+
+    raise RuntimeError(f"ask_llm exhausted retries: {last_err}")  # unreachable
 
 
-# ---------- Step 4: gather it all together ----------
-async def run_batch(
-    questions: list[Question], fail_rate: float = 0.0
-) -> list[Answer]:
-    """Fire all questions in parallel via ``asyncio.gather``."""
-    # TODO (Step 4):
-    tasks = [ask_llm_with_retry(q, fail_rate=fail_rate) for q in questions]
-    return await asyncio.gather(*tasks)
-    #raise NotImplementedError("Step 4 — build the tasks list and gather them")
+# ─── Streaming endpoint (Step 2a, 2b) ───────────────────────────────────────
+async def stream_answer(question: str, settings: Settings | None = None) -> AsyncIterator[str]:
+    """Yield content tokens as they arrive from the LLM.
 
+    W3 simulated this with asyncio.sleep. W4 replaces with real chunks.
+    """
+    settings = settings or Settings()
 
-async def run_in_batches(questions, batch_size=5, fail_rate=0.0)->list[Answer]:
-    out: list[Answer]=[]
+    if settings.use_fake:
+        # Offline path — yield words slowly. Kept for tests.
+        full = await fake_ask_llm(question)
+        for word in full.split(" "):
+            await asyncio.sleep(0.05)
+            yield word + " "
+        return
 
-    for i in range(0,len(questions),batch_size):
+    client = AsyncOpenAI(api_key=settings.openai_api_key)
+    
+    # client = AsyncOpenAI()
+    # TODO Step 2a — call client.chat.completions.create with stream=True:
+    #   stream = await client.chat.completions.create(
+    #       model=settings.model,
+    #       messages=[{"role": "user", "content": question}],
+    #       stream=True,
+    #   )
+    #
+    # TODO Step 2b — iterate and yield:
+    #   async for chunk in stream:
+    #       delta = chunk.choices[0].delta
+    #       if delta.content:
+    #           yield delta.content
 
-        chunk=questions[i:i+batch_size]
-        log.info(f"batch {i // batch_size + 1}: {len(chunk)} questions")
-        batch_answers=await asyncio.gather(*(ask_llm_with_retry(q, fail_rate=fail_rate) for q in chunk))
-        out.extend(batch_answers)
-        await asyncio.sleep(0.1)
-    return out
-
-def  summarise_run(answers:list[Answer], *, started_at: float, elapsed: float, fail_rate: float,use_fake: bool) -> RunSummary:
-
-    return RunSummary(
-        started_at      = started_at,
-        elapsed_seconds = elapsed,
-        n_questions     = len(answers),
-        n_succeeded     = len(answers),
-        n_retries_total = sum(a.retries  for a in answers),
-        total_cost_usd  = sum(a.cost_usd for a in answers),
-        fail_rate       = fail_rate,
-        use_fake        = use_fake,
+    stream = await client.chat.completions.create(
+        model=settings.model,
+        messages=[{"role": "user", "content": question}],
+        stream=True,
     )
 
+    async for chunk in stream:
+        if not chunk.choices:
+            continue
+        delta = chunk.choices[0].delta
+        if delta.content:
+            yield delta.content
 
-# ---------- Step 5: structured (JSON) logging ----------
-# TODO (Step 5):
-#   * class JsonFormatter(logging.Formatter): ...
-#       (emit one JSON record per call with ts / level / msg)
-#   * log = logging.getLogger("pipeline"); log.setLevel(logging.INFO)
-#   * handler = logging.StreamHandler(); handler.setFormatter(JsonFormatter())
-#   * log.addHandler(handler)
-#   * Then go back to ask_llm() and add: log.info(f"asked: {q.text[:40]}")
-    # class JsonFormatter(logging.Formatter):
-    #     log = logging.getLogger("pipeline") 
-    #     log.setLevel(logging.INFO)
-    #     handler = logging.StreamHandler(); 
-    #     handler.setFormatter(JsonFormatter())
-    #     log.addHandler(handler)
 
-# ---------- main ----------
-if __name__ == "__main__":
-    import sys
-    import argparse
 
-    #fail_rate = float(sys.argv[1]) if len(sys.argv) > 1 else 0.0
-    settings = Settings()
-    log.info(f"config:{settings.model_dump(mode='json')}")
-    # sample = [
-    #     Question(text="What is RAG in one sentence?"),
-    #     Question(text="Name three uses of vector databases."),
-    #     Question(text="Why might an LLM hallucinate?"),
-    # ]
-    questions=load_questions(settings.questions_csv)
-    log.info(f"loaded {len(questions)}questions")
 
-    parser = argparse.ArgumentParser(description="Run the RAG pipeline")
-    parser.add_argument("--limit", "-n",type=int,help="Process only the first N questions (>=0). If omitted, process all questions.")
-    args = parser.parse_args()
-
-    if args.limit is not None:
-        questions = questions[: args.limit]
-        log.info(f"limiting questions to first {args.limit}")
-    
-    started=time.time()
-    #answers = asyncio.run(run_batch(sample, fail_rate=settings.fail_rate))
-    answers=asyncio.run(run_in_batches(questions,settings.batch_size,fail_rate=settings.fail_rate))
-    
-    elapsed = time.time() - started
-    summary=summarise_run(answers, started_at=started,elapsed=elapsed, fail_rate=settings.fail_rate,use_fake=settings.use_fake)
-    log.info(f"summary: {summary.model_dump_json()}")
-    
-      # Write the structured artefact
-    settings.results_json.write_text(
-        json.dumps({
-            "summary": summary.model_dump(mode="json"),
-            "answers": [a.model_dump() for a in answers],
-        }, indent=2),
-        encoding="utf-8",
-    )
-
-    print(f"\n{len(answers)} answers to {settings.results_json} in {elapsed:.2f}s\n")
-    for a in answers:
-        print(f"- {a.text[:180]}")
-    
-    from .store import connect , write_run ,write_answers 
-
-    with connect(settings.results_db) as con:
-        run_id = write_run(con, summary)
-        n = write_answers(con, run_id, answers)
-
-    log.info(f"persisted run {run_id} with {n} answers to{settings.results_db}")
+    #raise NotImplementedError("Steps 2a, 2b — fill these in")

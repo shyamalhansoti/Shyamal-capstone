@@ -547,3 +547,37 @@
 {"ts": 1787824068.292, "level": "INFO", "msg": "asked: Explain what dependency injection means ", "logger": "pipeline"}
 {"ts": 1787824068.393, "level": "INFO", "msg": "summary: {\"started_at\":1787824062.80647,\"elapsed_seconds\":5.586458921432495,\"n_questions\":20,\"n_succeeded\":20,\"n_retries_total\":0,\"total_cost_usd\":0.0020000000000000005,\"fail_rate\":0.0,\"use_fake\":true}", "logger": "pipeline"}
 {"ts": 1787824068.618, "level": "INFO", "msg": "persisted run 10 with 20 answers toresults.db", "logger": "pipeline"}
+{"ts": 1788685395.578, "level": "INFO", "msg": "asked: What is RAG?", "logger": "pipeline"}
+{"ts": 1788685395.582, "level": "WARNING", "msg": "retry 1 for: What is RAG? (simulated)", "logger": "pipeline"}
+{"ts": 1788685395.589, "level": "WARNING", "msg": "retry 2 for: What is RAG? (simulated)", "logger": "pipeline"}
+{"ts": 1788685559.446, "level": "INFO", "msg": "asked: What is RAG?", "logger": "pipeline"}
+{"ts": 1788685559.45, "level": "WARNING", "msg": "retry 1 for: What is RAG? (simulated)", "logger": "pipeline"}
+{"ts": 1788685559.458, "level": "WARNING", "msg": "retry 2 for: What is RAG? (simulated)", "logger": "pipeline"}
+{"ts": 1788690815.075, "level": "INFO", "msg": "config:{'questions_csv': 'data/questions.csv', 'results_json': 'results.json', 'results_db': 'results.db', 'batch_size': 5, 'fail_rate': 0.0, 'model': 'gpt-4o-mini', 'use_fake': True}", "logger": "pipeline"}
+{"ts": 1788690815.078, "level": "INFO", "msg": "loaded 20questions", "logger": "pipeline"}
+{"ts": 1788690815.085, "level": "INFO", "msg": "batch 1: 5 questions", "logger": "pipeline"}
+{"ts": 1788690815.426, "level": "INFO", "msg": "asked: Explain async and await in Python in two", "logger": "pipeline"}
+{"ts": 1788690815.799, "level": "INFO", "msg": "asked: Name three real-world uses of vector dat", "logger": "pipeline"}
+{"ts": 1788690815.879, "level": "INFO", "msg": "asked: What is retrieval-augmented generation i", "logger": "pipeline"}
+{"ts": 1788690815.897, "level": "INFO", "msg": "asked: What is a Pydantic BaseModel and how doe", "logger": "pipeline"}
+{"ts": 1788690816.284, "level": "INFO", "msg": "asked: Why might an LLM produce confident but w", "logger": "pipeline"}
+{"ts": 1788690816.384, "level": "INFO", "msg": "batch 2: 5 questions", "logger": "pipeline"}
+{"ts": 1788690817.493, "level": "INFO", "msg": "asked: What is the role of a foreign key in a S", "logger": "pipeline"}
+{"ts": 1788690817.786, "level": "INFO", "msg": "asked: What does the @app.post decorator do in ", "logger": "pipeline"}
+{"ts": 1788690817.841, "level": "INFO", "msg": "asked: Why is JSON-formatted logging better tha", "logger": "pipeline"}
+{"ts": 1788690817.856, "level": "INFO", "msg": "asked: What's the difference between asyncio.ga", "logger": "pipeline"}
+{"ts": 1788690817.856, "level": "INFO", "msg": "asked: How does exponential backoff differ from", "logger": "pipeline"}
+{"ts": 1788690817.956, "level": "INFO", "msg": "batch 3: 5 questions", "logger": "pipeline"}
+{"ts": 1788690818.487, "level": "INFO", "msg": "asked: Why do we use parameterised SQL queries ", "logger": "pipeline"}
+{"ts": 1788690818.518, "level": "INFO", "msg": "asked: What does HTTP status code 422 mean?", "logger": "pipeline"}
+{"ts": 1788690818.694, "level": "INFO", "msg": "asked: What is the difference between SELECT an", "logger": "pipeline"}
+{"ts": 1788690818.768, "level": "INFO", "msg": "asked: Why should API keys be loaded from envir", "logger": "pipeline"}
+{"ts": 1788690819.158, "level": "INFO", "msg": "asked: What are the main steps in a typical RAG", "logger": "pipeline"}
+{"ts": 1788690819.258, "level": "INFO", "msg": "batch 4: 5 questions", "logger": "pipeline"}
+{"ts": 1788690819.603, "level": "INFO", "msg": "asked: Name three reasons an LLM might hallucin", "logger": "pipeline"}
+{"ts": 1788690819.617, "level": "INFO", "msg": "asked: How does a Python virtual environment he", "logger": "pipeline"}
+{"ts": 1788690819.682, "level": "INFO", "msg": "asked: What is the purpose of a unit test?", "logger": "pipeline"}
+{"ts": 1788690820.108, "level": "INFO", "msg": "asked: Explain what dependency injection means ", "logger": "pipeline"}
+{"ts": 1788690820.233, "level": "INFO", "msg": "asked: What does \"rate limiting\" mean in the co", "logger": "pipeline"}
+{"ts": 1788690820.334, "level": "INFO", "msg": "summary: {\"started_at\":1788690815.0850706,\"elapsed_seconds\":5.248416185379028,\"n_questions\":20,\"n_succeeded\":20,\"n_retries_total\":0,\"total_cost_usd\":0.0020000000000000005,\"fail_rate\":0.0,\"use_fake\":true}", "logger": "pipeline"}
+{"ts": 1788690820.639, "level": "INFO", "msg": "persisted run 11 with 20 answers toresults.db", "logger": "pipeline"}

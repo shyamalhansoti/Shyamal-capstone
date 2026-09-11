@@ -9,13 +9,16 @@ from pathlib import Path
 from pydantic import BaseModel,Field
 
 class Settings(BaseModel):
-    questions_csv: Path  = Path("data/questions.csv")
+    questions_csv: Path  = Path("data/questions_w4.csv")
     results_json:  Path  = Path("results.json")
-    results_db:    Path  = Path("results.db")
+    results_db:    Path  = Path("data/answers.db")
     batch_size:    int   = Field(5,   gt=0, le=20)
     fail_rate:     float = Field(0.0, ge=0.0, le=1.0)
     model:         str   = "gpt-4o-mini"
-    use_fake:      bool  = True 
+    use_fake:      bool  = False 
+    max_retries:    int   = Field(3)
+    retry_delay_s:   int =   Field(1) 
+    openai_api_key:  str = "voc-147924628722398553000916a9d0e067e5930.35304558"
 
 class RunSummary(BaseModel):
     """One row per pipeline execution. Persisted to the `runs` table."""
