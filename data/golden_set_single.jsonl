@@ -1,0 +1,2 @@
+{"id": "g001", "question": "How many days of annual leave do employees get?", "ideal_answer": "Employees get 20 days of paid annual leave per year, accrued monthly.", "notes": "happy-path (leave_policy)", "must_mention": ["20 days"], "expected_source": "leave_policy"}
+{"id": "g002", "question": "What expense amount requires an itemized receipt for reimbursement?", "ideal_answer": "Expenses over $50 require an itemized receipt to be reimbursed.", "notes": "happy-path (expense_policy)", "must_mention": ["$50", "receipt"], "expected_source": "expense_policy"}

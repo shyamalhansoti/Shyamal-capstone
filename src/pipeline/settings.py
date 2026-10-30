@@ -18,7 +18,7 @@ class Settings(BaseModel):
     use_fake:      bool  = False 
     max_retries:    int   = Field(3)
     retry_delay_s:   int =   Field(1) 
-    openai_api_key:  str = "voc-147924628722398553000916a9d0e067e5930.35304558"
+    openai_api_key:  str = "voc-82973996222398553000916abca357d51b42.80683040"
 
 class RunSummary(BaseModel):
     """One row per pipeline execution. Persisted to the `runs` table."""

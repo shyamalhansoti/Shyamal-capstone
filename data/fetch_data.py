@@ -18,8 +18,8 @@ model = 'gpt-4o' ORDER BY id DESC LIMIT 1), 1, 200) AS full_says
 FROM (SELECT DISTINCT question FROM answers WHERE model IN ('gpt-4omini', 'gpt-4o')) q
 ORDER BY q.question;
 """
-confidencequery="""SELECT model, AVG(confidence), AVG(cost_usd) FROM answers GROUP BY model"""
-
+# confidencequery="""SELECT model, AVG(confidence), AVG(cost_usd) FROM answers GROUP BY model"""
+confidencequery="""select * from eval_runs"""
 #confidencequery="""SELECT model, cost_usd,created_at FROM answers where model='gpt-4o-mini'"""
 
 # 3. Execute the SQL query

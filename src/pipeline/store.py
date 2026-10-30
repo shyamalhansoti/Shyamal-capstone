@@ -14,7 +14,7 @@ import sqlite3
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Iterator
-
+import time
 
 # ─── Schema (idempotent) ────────────────────────────────────────────────────
 _BASE_SCHEMA = """
@@ -26,6 +26,23 @@ CREATE TABLE IF NOT EXISTS answers (
     cost_usd        REAL DEFAULT 0.0,
     created_at      TEXT DEFAULT CURRENT_TIMESTAMP
 );
+
+DROP TABLE IF EXISTS eval_runs;
+
+CREATE TABLE eval_runs (
+ id INTEGER PRIMARY KEY AUTOINCREMENT,
+ run_id       INTEGER NOT NULL,                          -- groups one eval run
+ golden_id TEXT NOT NULL,
+ question TEXT NOT NULL,
+ candidate_answer TEXT NOT NULL,
+ accuracy INTEGER NOT NULL,
+ groundedness INTEGER NOT NULL,
+ format INTEGER NOT NULL,
+ reasoning TEXT NOT NULL,
+ eval_run_label TEXT DEFAULT 'eval-run-001',
+ created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
 """
 
 # Columns added in W4. Each entry: (column_name, column_def).
@@ -58,7 +75,7 @@ def ensure_schema(db_path: str | Path) -> None:
 
 
 @contextmanager
-def connect(db_path: str | Path) -> Iterator[sqlite3.Connection]:
+def connect(db_path: str | Path== "data/answers.db") -> Iterator[sqlite3.Connection]:
     """Open a connection with the W4 schema guaranteed in place."""
     ensure_schema(db_path)
     conn = sqlite3.connect(str(db_path))
@@ -106,3 +123,49 @@ def query_results(conn: sqlite3.Connection, model: str | None = None) -> list[di
         cur = conn.execute("SELECT * FROM answers WHERE model = ? ORDER BY id", (model,))
     cols = [d[0] for d in cur.description]
     return [dict(zip(cols, row)) for row in cur.fetchall()]
+
+def write_eval_run(
+    conn: sqlite3.Connection,
+    run_id: int,
+    golden_id: str,
+    question: str,
+    candidate_answer: str,
+    scores: dict
+) -> None:
+    """Insert one judged answer into `eval_runs` (Week 5)."""
+    # try:
+    # with conn as conn1:
+    conn.execute(
+                "INSERT INTO eval_runs (run_id, golden_id, question, candidate_answer,"
+                "                       accuracy, groundedness, format, reasoning, created_at) "
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                (run_id, golden_id, question, candidate_answer,
+                scores.get("accuracy"), scores.get("groundedness"),
+                scores.get("format"), scores.get("reasoning"), time.time()),
+            )
+    conn.commit()
+    # except AttributeError as e:
+    #     print(e)
+
+
+def write_rag_run(
+    con: sqlite3.Connection,
+    run_id: int,
+    golden_id: str,
+    question: str,
+    answer: str,
+    sources: list[str],
+    hit: int,
+    latency_ms: float,
+    cost_usd: float,
+) -> None:
+    """Insert one RAG answer over the golden set into `rag_runs` (Week 6)."""
+    import json
+    conn.execute(
+        "INSERT INTO rag_runs (run_id, golden_id, question, answer, sources_json, "
+        "                      hit, latency_ms, cost_usd, ts) "
+        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        (run_id, golden_id, question, answer, json.dumps(sources),
+         hit, latency_ms, cost_usd, time.time()),
+    )
+    conn.commit()

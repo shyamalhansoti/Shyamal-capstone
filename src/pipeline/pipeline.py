@@ -120,7 +120,8 @@ async def ask_llm(q: Question, settings: Settings | None = None) -> Answer:
             #resp = None  # TODO replace with the await ... call above
             resp = await client.chat.completions.create(
                 model=settings.model,
-                messages=[{"role": "user", "content": q.question}],
+                messages=[{"role":"system", "content": {prompt},
+                    "role": "user", "content": q.question}],
                 tools=[ANSWER_TOOL],
                 tool_choice={
                     "type": "function",
